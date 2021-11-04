@@ -1,0 +1,65 @@
+.parent-login-div {
+  
+}
+.login-page-div {
+    margin-top: 20%;
+}
+
+
+
+.username-email-div {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+.username-email-label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.username-input-box {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+
+
+.password-div {
+
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+.password-label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.password-input-box {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+
+
+.login-button-div {
+    margin: auto;
+    width: 30%;
+    padding: 10px;
+}
+.login-button {
+    background-color: #15d08b;
+    color: white;
+    padding: 14px 20px;
+    /* margin: 8px 0; */
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
