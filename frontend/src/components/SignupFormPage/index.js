@@ -32,7 +32,7 @@ function SignupFormPage() {
         <div className='parent-signup-div'>
             <div className='signup-page-div'>
                 <form onSubmit={handleSubmit}>
-                    <ul>
+                    <ul className='signup-login-errors'>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className='email-div'>

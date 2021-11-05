@@ -29,7 +29,7 @@ function LoginFormPage() {
         <div className='parent-login-div'>
             <div className='login-page-div'>
                 <form onSubmit={handleSubmit}>
-                    <ul>
+                    <ul className='signup-login-errors'>
                         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className='username-email-div'>
