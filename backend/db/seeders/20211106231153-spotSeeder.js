@@ -5,7 +5,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('Spots', [
       {
-        userId: 1,
+        userId: 2,
         city: 'San Francisco',
         state: 'California',
         country: 'United States',
@@ -15,7 +15,7 @@ module.exports = {
         price: 85,
       },
       {
-        userId: 2,
+        userId: 3,
         city: 'San Francisco',
         state: 'California',
         country: 'United States',
@@ -25,7 +25,7 @@ module.exports = {
         price: 83,
       },
       {
-        userId: 3,
+        userId: 4,
         city: 'San Francisco',
         state: 'California',
         country: 'United States',
@@ -35,7 +35,7 @@ module.exports = {
         price: 73,
       },
       {
-        userId: 4,
+        userId: 5,
         city: 'San Francisco',
         state: 'California',
         country: 'United States',
@@ -45,7 +45,7 @@ module.exports = {
         price: 162,
       },
       {
-        userId: 5,
+        userId: 6,
         city: 'San Francisco',
         state: 'California',
         country: 'United States',
@@ -55,7 +55,7 @@ module.exports = {
         price: 90,
       },
       {
-        userId: 6,
+        userId: 7,
         city: 'Oakland',
         state: 'California',
         country: 'United States',
@@ -65,7 +65,7 @@ module.exports = {
         price: 230,
       },
       {
-        userId: 7,
+        userId: 8,
         city: 'Oakland',
         state: 'California',
         country: 'United States',
@@ -75,7 +75,7 @@ module.exports = {
         price: 274,
       },
       {
-        userId: 8,
+        userId: 9,
         city: 'Oakland',
         state: 'California',
         country: 'United States',
@@ -85,7 +85,7 @@ module.exports = {
         price: 194,
       },
       {
-        userId: 9,
+        userId: 10,
         city: 'Oakland',
         state: 'California',
         country: 'United States',
@@ -95,7 +95,7 @@ module.exports = {
         price: 228,
       },
       {
-        userId: 10,
+        userId: 11,
         city: 'Oakland',
         state: 'California',
         country: 'United States',
@@ -105,7 +105,7 @@ module.exports = {
         price: 250,
       },
       {
-        userId: 11,
+        userId: 12,
         city: 'Berkeley',
         state: 'California',
         country: 'United States',
@@ -115,7 +115,7 @@ module.exports = {
         price: 201,
       },
       {
-        userId: 12,
+        userId: 13,
         city: 'Berkeley',
         state: 'California',
         country: 'United States',
@@ -125,7 +125,7 @@ module.exports = {
         price: 246,
       },
       {
-        userId: 13,
+        userId: 14,
         city: 'Berkeley',
         state: 'California',
         country: 'United States',
@@ -135,7 +135,7 @@ module.exports = {
         price: 279,
       },
       {
-        userId: 14,
+        userId: 15,
         city: 'Berkeley',
         state: 'California',
         country: 'United States',
@@ -145,7 +145,7 @@ module.exports = {
         price: 225,
       },
       {
-        userId: 15,
+        userId: 16,
         city: 'Berkeley',
         state: 'California',
         country: 'United States',
@@ -155,7 +155,7 @@ module.exports = {
         price: 250,
       },
       {
-        userId: 16,
+        userId: 17,
         city: 'San Jose',
         state: 'California',
         country: 'United States',
@@ -165,7 +165,7 @@ module.exports = {
         price: 299,
       },
       {
-        userId: 17,
+        userId: 18,
         city: 'San Jose',
         state: 'California',
         country: 'United States',
@@ -175,7 +175,7 @@ module.exports = {
         price: 305,
       },
       {
-        userId: 18,
+        userId: 19,
         city: 'San Jose',
         state: 'California',
         country: 'United States',
@@ -185,7 +185,7 @@ module.exports = {
         price: 295,
       },
       {
-        userId: 19,
+        userId: 20,
         city: 'Felton',
         state: 'California',
         country: 'United States',
@@ -195,7 +195,7 @@ module.exports = {
         price: 329,
       },
       {
-        userId: 20,
+        userId: 21,
         city: 'San Jose',
         state: 'California',
         country: 'United States',
