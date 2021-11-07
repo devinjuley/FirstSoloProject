@@ -10,7 +10,7 @@ module.exports = {
       },
       review: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       userId: {
         allowNull: false,

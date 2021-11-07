@@ -15,25 +15,25 @@ module.exports = {
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(55)
       },
       state: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(55)
       },
       country: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(55)
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(75)
       },
       details: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(55)
       },
-      aboutThisPlace: {
+      aboutThisSpace: {
         allowNull: false,
         type: Sequelize.TEXT
       },
