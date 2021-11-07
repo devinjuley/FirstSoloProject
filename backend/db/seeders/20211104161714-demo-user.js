@@ -7,12 +7,37 @@ module.exports = {
     return queryInterface.bulkInsert('Users', [
       {
         email: 'demo@user.io',
-        username: 'Demo-lition',
+        username: 'demo',
         hashedPassword: bcrypt.hashSync('password'),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser1',
+        username: 'Lacey',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Ford',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Stephanie',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Larissa',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Zeyu',
+        hashedPassword: bcrypt.hashSync(faker.internet.password()),
+      },
+      {
+        email: faker.internet.email(),
+        username: 'Zach',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
@@ -22,92 +47,67 @@ module.exports = {
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Andrea',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Sonia',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Jason',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Ryann',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Aysha',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Todd',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Shirley',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Shanna',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Daylen',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Liam',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Jahan',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Harshad',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
       {
         email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync(faker.internet.password()),
-      },
-      {
-        email: faker.internet.email(),
-        username: 'FakeUser2',
+        username: 'Kumar',
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
       },
     ], {});
