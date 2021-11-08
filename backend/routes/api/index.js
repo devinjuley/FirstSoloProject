@@ -5,6 +5,7 @@ const berkeleyRouter = require('./berkeley.js')
 const oaklandRouter = require('./oakland.js')
 const sanFranciscoRouter = require('./sanfrancisco.js')
 const sanJoseRouter = require('./sanjose.js')
+const spotRouter = require('./singleSpot.js')
 
 router.use('/session', sessionRouter);
 
@@ -17,6 +18,8 @@ router.use('/oakland', oaklandRouter);
 router.use('/sanfrancisco', sanFranciscoRouter);
 
 router.use('/sanjose', sanJoseRouter);
+
+router.use('/spot', spotRouter)
 
 
 
