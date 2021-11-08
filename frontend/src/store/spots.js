@@ -1,7 +1,8 @@
 const LOAD_BERKELEY = 'spots/LOAD_BERKELEY';
 const LOAD_OAKLAND = 'spots/LOAD_OAKLAND';
-const LOAD_SAN_FRANCISCO = 'spots/LOAD_SAN_FRANCISCO'
-const LOAD_SAN_JOSE = 'spots/LOAD_SAN_JOSE'
+const LOAD_SAN_FRANCISCO = 'spots/LOAD_SAN_FRANCISCO';
+const LOAD_SAN_JOSE = 'spots/LOAD_SAN_JOSE';
+const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
 
 
 const loadBerkeley = list => ({
@@ -21,6 +22,11 @@ const loadSanFrancisco = list => ({
 
 const loadSanJose = list => ({
     type: LOAD_SAN_JOSE,
+    list,
+})
+
+const loadSingleSpot = list => ({
+    type: LOAD_SINGLE_SPOT,
     list,
 })
 
@@ -60,6 +66,14 @@ export const getSanJoseSpots = () => async dispatch => {
     }
 }
 
+export const getSingleSpot = () => async dispatch => {
+    const response = await fetch('/api/spot/:id');
+
+    if (response.ok) {
+        const spot = await response.json();
+        dispatch(loadSingleSpot(spot));
+    }
+}
 
 const initialState = {
     spots: false,
@@ -99,6 +113,12 @@ const spotReducer = (state = initialState, action) => {
             action.list.forEach(spot => {
                 newState[spot.id] = spot;
             })
+            newState.spots = true;
+            return newState;
+        }
+        case LOAD_SINGLE_SPOT: {
+            const newState = { ...state }
+            newState[action.list.id] = action.list;
             newState.spots = true;
             return newState;
         }
