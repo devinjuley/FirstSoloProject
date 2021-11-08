@@ -8,21 +8,21 @@ body {
     top: 0;
     right: 0;
     border: none;
-    background-color: #15d08b;
+    background-color: #90c590;
     height: 50px;
-    color: white;
+    color: black;
     width: 60px;
-    border-left: 1px solid white;
+    /* border-left: 1px solid white; */
     /* border-radius: 5px; */
 }
 #dropdown-menu-button:hover {
-    background-color: #ddd;
+    background-color: black;
 }
 #dropdown-menu-image {
    /* background-color: #15d08b; */
     height: 35px;
     width: 35px;
-    color: white;
+    color: black;
 }
 
 #email-image-dropdown {
@@ -43,10 +43,11 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    right: 8px;
+    z-index: 2;
     width: 100%;
     height: 50px;
-    background-color: #15d08b;
+    background-color: white;
     /* box-shadow: 2px 2px #eeebeb; */
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
     
@@ -55,7 +56,7 @@ body {
 .navbar-buttons {
     /* display: block; */
 
-    color: white;
+    color: black;
     font-weight:bold;
     padding:  10px;
     padding-top: 15px;
@@ -71,12 +72,13 @@ body {
 }
 
 .navbar-buttons:hover {
-    background-color: #ddd;
-    color: black;
+    background-color: #90c590;
+    color: white;
 }
 
 .navbar-li {
     text-decoration: none;
+    /* border-right: orangered; */
 }
 
 .navbar-ul {
@@ -104,10 +106,11 @@ list-style-type: none;
 }
 
 #navbar-home-button {
-    border-right: 1px solid white;
+    /* border-right: 1px solid white; */
     position: fixed;
     top: 0;
     left: 0;
+    /* border-right: orangered; */
     /* z-index: 999; */
 }
 
@@ -120,7 +123,7 @@ list-style-type: none;
     border-radius: 3px;
     background-color: #FFFDFA;
     /* padding: 20px; */
-    margin-top: 40px;
+    margin-top: 50px;
     margin-right: 5px;
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
@@ -133,10 +136,10 @@ list-style-type: none;
     padding: 8px;
     border: none;
     color: white;
-    background-color: #15d08b;
+    background-color: orangered;
     font-weight: bold;
     float: right;
-    border-radius: 4px;
+    border-radius: 25px;
 
 }
 .logout-button-inside-dropdown:hover {
@@ -153,4 +156,12 @@ list-style-type: none;
     padding-top: 10px;
     border-bottom: 1px solid #eeebeb;
     padding-bottom: 10px;
+}
+
+.navbar-logo-phrase {
+    position: fixed;
+    left: 100px;
+    font-family: Arial, Helvetica, sans-serif; 
+    color: orangered;
+    /* font-style: italic; */
 }
