@@ -1,8 +1,8 @@
-const LOAD = 'spots/LOAD';
+const LOAD_BERKELEY = 'spots/LOAD_BERKELEY';
 
 
-const load = list => ({
-    type: LOAD,
+const loadBerkeley = list => ({
+    type: LOAD_BERKELEY,
     list,
 });
 
@@ -11,22 +11,28 @@ export const getBerkeleySpots = () => async dispatch => {
 
     if (response.ok) {
         const spots = await response.json();
-        dispatch(load(spots));
+        dispatch(loadBerkeley(spots));
     }
 }
 
 const initialState = {
-    list: [],
-    types: []
+    spots: false,
 };
 
-const spotReducer = (state = {}, action) => {
+const spotReducer = (state = initialState, action) => {
     switch (action.type) {
-        case LOAD: {
-            return {
-                ...state,
-            }
+        case LOAD_BERKELEY: {
+            const newState = { ...state }
+            action.list.forEach(spot => {
+                newState[spot.id] = spot;
+            })
+            newState.spots = true;
+            return newState;
 
         }
+        default:
+            return state;
     }
 }
+
+export default spotReducer;
