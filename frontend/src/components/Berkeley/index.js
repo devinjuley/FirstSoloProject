@@ -6,10 +6,19 @@ import { getBerkeleySpots } from '../../store/spots';
 import './Berkeley.css';
 
 function Berkeley() {
+
+    const spots = useSelector(state => state.spots)
+
+    const spotsArray = Object.assign([], spots)
+
+
+
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getBerkeleySpots());
     }, [dispatch])
+    console.log('this is it', spotsArray)
     return (
         <div>
             <div>Berkeley Spots</div>
@@ -24,7 +33,16 @@ function Berkeley() {
             <div>Berkeley Spots</div>
             <div>Berkeley Spots</div>
             <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
+            {spotsArray.map(spot => {
+                return <a href='/' className='berkeley-spots-div'>
+                    <div>
+                        <img src={spot.Images[0].url} alt='spot-image' className='berkeley-main-images' />
+                        {spot.title}
+                        {spot.details}
+                        {spot.price}
+                    </div>
+                </a>
+            })}
         </div>
     )
 }
