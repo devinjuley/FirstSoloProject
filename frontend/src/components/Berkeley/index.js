@@ -18,11 +18,11 @@ function Berkeley() {
     useEffect(() => {
         dispatch(getBerkeleySpots());
     }, [dispatch])
-    console.log('this is it', spotsArray)
+
     return (
-        <div>
+        <div className='top-level-div'>
             <div className='berkeley-spots-parent-container'>
-                <div className='san-francisco-location-title'>Stays in San Francisco</div>
+                <div className='san-francisco-location-title'>Stays in Berkeley</div>
                 {spotsArray.map(spot => {
                     return <div className='berkeley-spots-div' key={spot.id}>
                         <div>
@@ -40,6 +40,9 @@ function Berkeley() {
                     </div>
 
                 })}
+            </div>
+            <div className='berkeley-map-parent-container'>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d84948.2835899843!2d-122.34193843017484!3d37.86904570210498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808579363a8549d3%3A0x94ea1595a675e993!2sBerkeley%2C%20CA!5e0!3m2!1sen!2sus!4v1636406013940!5m2!1sen!2sus" className='berkeley-map'></iframe>
             </div>
         </div>
     )
