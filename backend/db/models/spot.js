@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     title: DataTypes.STRING,
     details: DataTypes.STRING,
-    aboutThisPlace: DataTypes.TEXT
+    aboutThisSpace: DataTypes.TEXT
   }, {});
   Spot.associate = function (models) {
     Spot.hasMany(models.Image, { foreignKey: 'spotId' })
