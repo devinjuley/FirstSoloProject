@@ -1,3 +1,13 @@
+
+
+/* NOTE: CSS for berkeley is also used on the Oakland, San Jose,
+and San Francisco Components.  This is because they all needed to
+be styled identically */
+
+.top-level-div {
+    display: flex;
+}
+
 .berkeley-main-images {
     height: 200px;
     width: 300px;
@@ -47,17 +57,35 @@
 }
 
 .berkeley-spots-parent-container {
-    border: 1px solid lightgrey;
+    /* position: relative; */
+    /* left: 0; */
+    /* border: 1px solid lightgrey; */
     padding: 20px;
     padding-bottom: 10px;
-    width: 700px;
-    margin-top: 80px;
-    margin-left: 40px;
+    width: 750px;
+    margin-top: 40px;
+    /* margin-left: 40px; */
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .san-francisco-location-title {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 32px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+.berkeley-map-parent-container {
+    margin-top: 40px;
+
+    
+}
+
+.berkeley-map {
+    border: none;
+    position: fixed;
+    /* height: 1000px; */
+    /* width: 800px; */
+    width: 100%;
+    height: 1000px;
 }

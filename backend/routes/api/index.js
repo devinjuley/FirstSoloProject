@@ -2,12 +2,21 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const berkeleyRouter = require('./berkeley.js')
+const oaklandRouter = require('./oakland.js')
+const sanFranciscoRouter = require('./sanfrancisco.js')
+const sanJoseRouter = require('./sanjose.js')
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
 router.use('/berkeley', berkeleyRouter);
+
+router.use('/oakland', oaklandRouter);
+
+router.use('/sanfrancisco', sanFranciscoRouter);
+
+router.use('/sanjose', sanJoseRouter);
 
 
 
