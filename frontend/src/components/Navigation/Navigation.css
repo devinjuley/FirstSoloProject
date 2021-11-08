@@ -163,5 +163,6 @@ list-style-type: none;
     left: 100px;
     font-family: Arial, Helvetica, sans-serif; 
     color: orangered;
+    font-weight: lighter;
     /* font-style: italic; */
 }
