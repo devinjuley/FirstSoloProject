@@ -21,28 +21,26 @@ function Berkeley() {
     console.log('this is it', spotsArray)
     return (
         <div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            <div>Berkeley Spots</div>
-            {spotsArray.map(spot => {
-                return <a href='/' className='berkeley-spots-div'>
-                    <div>
-                        <img src={spot.Images[0].url} alt='spot-image' className='berkeley-main-images' />
-                        {spot.title}
-                        {spot.details}
-                        {spot.price}
+            <div className='berkeley-spots-parent-container'>
+                <div className='san-francisco-location-title'>Stays in San Francisco</div>
+                {spotsArray.map(spot => {
+                    return <div className='berkeley-spots-div' key={spot.id}>
+                        <div>
+                            <a href='/'  >
+                                <img src={spot.Images[0].url} alt='spot-image' className='berkeley-main-images' />
+                            </a>
+                        </div>
+                        <div className='berkeley-spots-info-div'>
+                            <div className='berkeley-spots-title'>{spot.title}</div>
+
+                            <div className='berkeley-spots-details'>{spot.details}</div>
+
+                            <div className='berkeley-spots-price'>${spot.price} / night</div>
+                        </div>
                     </div>
-                </a>
-            })}
+
+                })}
+            </div>
         </div>
     )
 }
