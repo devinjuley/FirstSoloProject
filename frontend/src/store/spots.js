@@ -66,8 +66,8 @@ export const getSanJoseSpots = () => async dispatch => {
     }
 }
 
-export const getSingleSpot = () => async dispatch => {
-    const response = await fetch('/api/spot/:id');
+export const getSingleSpot = (spotId) => async dispatch => {
+    const response = await fetch(`/api/spot/${spotId}`);
 
     if (response.ok) {
         const spot = await response.json();
