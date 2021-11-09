@@ -30,10 +30,19 @@ function SingleSpot() {
                             <img src={image.url} className='single-spot-images' />
                         </div>
                     })}
+                    <div className='single-spot-price'>
+                        <div className='single-spot-price-per-night'>${spot?.price} / night</div>
+                        <button className='check-avail-button'>Check Availability</button>
+                    </div>
                 </div>
-                <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
-                <div className='single-spot-details'>{spot?.details}</div>
-                <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
+                <div className='single-spot-under-pics-parent'>
+                    <div className='single-spot-under-pics'>
+                        <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
+                        <div className='single-spot-details'>{spot?.details}</div>
+                        <div className='single-spot-about-this-space'>About this Space</div>
+                        <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
+                    </div>
+                </div>
                 {spot?.Reviews.map(review => {
                     return <div key={review.id} className='single-spot-reviews'>
                         {review.review}

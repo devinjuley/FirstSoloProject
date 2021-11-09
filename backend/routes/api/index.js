@@ -21,6 +21,8 @@ router.use('/sanjose', sanJoseRouter);
 
 router.use('/spot', spotRouter)
 
+router.use('/createlisting', spotRouter)
+
 
 
 // router.post('/test', (req, res) => {
