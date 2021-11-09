@@ -25,8 +25,8 @@ function Navigation({ isLoaded }) {
         <div className='navbar-div'>
             <ul className='navbar-ul'>
                 <li className='navbar-li'>
-                    <NavLink exact to="/" className='navbar-buttons' id='navbar-home-button'>Home</NavLink>
-                    <span className='navbar-logo-phrase'>Somewhere New</span>
+                    <NavLink exact to="/" className='navbar-buttons' id='navbar-home-button'>☂ s o m e w h e r e n e w</NavLink>
+                    {/* <span className='navbar-logo-phrase'>🆂🅽</span> */}
                     {isLoaded && sessionLinks}
                 </li>
             </ul>

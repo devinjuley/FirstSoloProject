@@ -31,6 +31,7 @@ function SingleSpot() {
                         </div>
                     })}
                 </div>
+                <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
                 <div className='single-spot-details'>{spot?.details}</div>
                 <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
                 {spot?.Reviews.map(review => {
