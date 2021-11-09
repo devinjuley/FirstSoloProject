@@ -11,6 +11,7 @@ import Oakland from "./components/Oakland";
 import SanFrancisco from "./components/SanFrancisco";
 import SanJose from './components/SanJose'
 import SingleSpot from "./components/SingleSpot";
+import CreateListing from "./components/CreateListing";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,9 @@ function App() {
           </Route>
           <Route path='/spot/:id'>
             <SingleSpot />
+          </Route>
+          <Route path='/createlisting'>
+            <CreateListing />
           </Route>
         </Switch>
       )}
