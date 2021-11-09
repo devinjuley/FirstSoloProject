@@ -49,7 +49,7 @@ body {
     height: 50px;
     background-color: white;
     /* box-shadow: 2px 2px #eeebeb; */
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2)
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1)
     
 }
 
@@ -72,8 +72,8 @@ body {
 }
 
 .navbar-buttons:hover {
-    background-color: #90c590;
-    color: white;
+    /* background-color: #90c590; */
+    color: orangered
 }
 
 .navbar-li {
@@ -108,8 +108,12 @@ list-style-type: none;
 #navbar-home-button {
     /* border-right: 1px solid white; */
     position: fixed;
+    width: 270px;
+    font-size: 20px;
     top: 0;
     left: 0;
+    font-weight: lighter;
+    
     /* border-right: orangered; */
     /* z-index: 999; */
 }
@@ -160,6 +164,7 @@ list-style-type: none;
 
 .navbar-logo-phrase {
     position: fixed;
+    font-size: 22px;
     left: 100px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: orangered;
