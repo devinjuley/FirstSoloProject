@@ -44,7 +44,11 @@ router.post('/', listingValidations.validateCreate, restoreUser, asyncHandler(as
     })
 
     // await setTokenCookie(res, spot);
-    // await setTokenCookie(res, images);
+    // await setTokenCookie(res, image1);
+    // await setTokenCookie(res, image2);
+    // await setTokenCookie(res, image3);
+    // await setTokenCookie(res, image4);
+    // await setTokenCookie(res, image5);
 
     return res.json({
         spot,
