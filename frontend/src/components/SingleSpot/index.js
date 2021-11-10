@@ -11,7 +11,7 @@ function SingleSpot() {
     const dispatch = useDispatch()
     const history = useHistory()
     const spot = useSelector(state => state?.spots[id])
-    const sessionUser = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state?.session.user);
     // console.log("session user", sessionUser)
     // console.log("spot user", spot.id)
 
@@ -22,7 +22,7 @@ function SingleSpot() {
 
     let editLink;
     let deleteLink;
-    if (sessionUser.id === spot?.User.id) {
+    if (sessionUser?.id === spot?.User.id) {
         editLink = (
             <a href={`/editlisting/${spot?.id}`} className='single-spot-edit-button'>edit listing</a>
         )
