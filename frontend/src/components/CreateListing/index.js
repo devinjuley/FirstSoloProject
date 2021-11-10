@@ -47,9 +47,9 @@ function CreateListing() {
         }
 
         let createdListing = await dispatch(createNewSpot(newListing))
+        console.log("created listing:", createdListing)
         if (createdListing) {
-            console.log(createdListing)
-            history.push(`/spots/${createdListing.id}`)
+            history.push(`/spot/${createdListing.spot.id}`)
         }
     };
 

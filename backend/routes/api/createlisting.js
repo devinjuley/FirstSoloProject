@@ -10,7 +10,7 @@ const listingValidations = require('../../utils/listings')
 const router = express.Router();
 
 router.post('/', listingValidations.validateCreate, restoreUser, asyncHandler(async (req, res) => {
-    console.log('this is it', req.user)
+    // console.log('this is it', req.user)
     const { userId, city, state, country, title, details, aboutThisSpace, price, url1, url2, url3, url4, url5 } = req.body;
     const spot = await Spot.create({
         userId,
