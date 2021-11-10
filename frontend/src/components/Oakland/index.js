@@ -26,7 +26,8 @@ function Oakland() {
                     return <div className='berkeley-spots-div' key={spot.id}>
                         <div>
                             <a href={`/spot/${spot.id}`}  >
-                                <img src={spot.Images[0].url} alt='spot-image' className='berkeley-main-images' />
+                                {/* {console.log(spot?.Images)} */}
+                                <img src={spot?.Images[0].url} alt='spot-image' className='berkeley-main-images' />
                             </a>
                         </div>
                         <div className='berkeley-spots-info-div'>
