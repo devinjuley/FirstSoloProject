@@ -12,6 +12,7 @@ import SanFrancisco from "./components/SanFrancisco";
 import SanJose from './components/SanJose'
 import SingleSpot from "./components/SingleSpot";
 import CreateListing from "./components/CreateListing";
+import EditListing from "./components/EditListing";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,6 +52,9 @@ function App() {
           </Route>
           <Route path='/createlisting'>
             <CreateListing />
+          </Route>
+          <Route path='/editlisting/:id'>
+            <EditListing isLoaded={isLoaded} />
           </Route>
         </Switch>
       )}

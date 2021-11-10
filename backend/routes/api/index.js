@@ -7,6 +7,7 @@ const sanFranciscoRouter = require('./sanfrancisco.js')
 const sanJoseRouter = require('./sanjose.js')
 const spotRouter = require('./singleSpot.js')
 const createListing = require('./createlisting')
+const editListing = require('./editlisting')
 
 router.use('/session', sessionRouter);
 
@@ -23,6 +24,8 @@ router.use('/sanjose', sanJoseRouter);
 router.use('/spot', spotRouter)
 
 router.use('/createlisting', createListing)
+
+router.use('/editlisting', editListing)
 
 
 

@@ -97,6 +97,15 @@ export const createNewSpot = (newListing) => async dispatch => {
     }
 }
 
+export const getEditListing = (spotId) => async dispatch => {
+    const response = await fetch(`/api/editlisting/${spotId}`)
+    if (response.ok) {
+        const listing = await response.json()
+        dispatch(loadSingleSpot(listing))
+        return listing;
+    }
+}
+
 const initialState = {
     spots: false,
 };

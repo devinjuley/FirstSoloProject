@@ -24,7 +24,7 @@ function HomePage() {
                     </label>
                 </form>
             </div>
-            <div class='explore-nearby-title-div'>
+            <div className='explore-nearby-title-div'>
                 <span className='explore-nearby-title'>Explore nearby</span>
             </div>
             <div className='explore-nearby-div'>

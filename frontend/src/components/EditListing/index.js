@@ -1,31 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
 // import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { createNewSpot } from '../../store/spots';
+import { getEditListing } from '../../store/spots';
 import { useHistory } from 'react-router-dom';
-import './CreateListing.css';
+import './EditListing.css';
 
-function CreateListing() {
+function EditListing() {
     const dispatch = useDispatch();
+    const { id } = useParams()
+    useEffect(() => {
+        dispatch(getEditListing(id))
+    }, [])
     const history = useHistory();
     const sessionUserId = useSelector((state) => state.session.user.id);
-    // console.log('this is it', sessionUserId)
+    const spot = useSelector(state => state.spots[id]);
+    console.log('this is it', spot?.Images[0].url)
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("")
     const [city, setCity] = useState("");
     const [state, setState] = useState("")
     const [country, setCountry] = useState("")
-    const [url1, setUrl1] = useState("")
-    const [url2, setUrl2] = useState("")
-    const [url3, setUrl3] = useState("")
-    const [url4, setUrl4] = useState("")
-    const [url5, setUrl5] = useState("")
+    const [url1, setUrl1] = useState(spot?.Images[0].url)
+    const [url2, setUrl2] = useState('')
+    const [url3, setUrl3] = useState('')
+    const [url4, setUrl4] = useState('')
+    const [url5, setUrl5] = useState('')
     const [aboutThisSpace, setAboutThisSpace] = useState("")
     const [price, setPrice] = useState("");
-    // const [errors, setErrors] = useState([]);
 
-    // if (!sessionUser) return <Redirect to="/login" />;
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -46,11 +52,11 @@ function CreateListing() {
             price
         }
 
-        let createdListing = await dispatch(createNewSpot(newListing))
-        console.log("created listing:", createdListing)
-        if (createdListing) {
-            history.push(`/spot/${createdListing.spot.id}`)
-        }
+        // let createdListing = await dispatch(createNewSpot(newListing))
+        // console.log("created listing:", createdListing)
+        // if (createdListing) {
+        //     history.push(`/spot/${createdListing.spot.id}`)
+        // }
     };
 
 
@@ -214,4 +220,4 @@ function CreateListing() {
     )
 }
 
-export default CreateListing;
+export default EditListing;
