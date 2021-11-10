@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import * as sessionActions from '../../store/session';
+// import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { getSingleSpot } from '../../store/spots';
 import './SingleSpot.css';
 
-function SingleSpot() {
+function SingleSpot({ isLoaded }) {
     const { id } = useParams();
     const dispatch = useDispatch()
     const spot = useSelector(state => state.spots[id])
-    // const spotArray = Object.assign([], spot)
-    console.log(spot)
-
-
+    const sessionUser = useSelector(state => state.session.user);
+    // console.log("session user", sessionUser)
+    // console.log("spot user", spot.id)
+    let editLink;
+    if (sessionUser.id === spot?.User.id) {
+        editLink = (
+            <a href={`/editlisting/${spot.id}`} className='single-spot-edit-button'>edit listing</a>
+        )
+    }
+    // console.log("this is spot", spot)
     useEffect(() => {
         dispatch(getSingleSpot(id))
     }, [dispatch])
@@ -23,6 +29,7 @@ function SingleSpot() {
         <div className='single-spot-top-level-div'>
             <div className='single-spot-parent-container'>
                 <div className='single-spot-title'>{spot?.title}</div>
+                {editLink}
                 <div className='single-spot-location'>{spot?.city}, {spot?.state}, {spot?.country}</div>
                 <div className='single-spot-parent-images'>
                     {spot?.Images.map(image => {
