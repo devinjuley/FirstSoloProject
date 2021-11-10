@@ -31,7 +31,7 @@ const validateSignup = [
         .withMessage('Confirm Password must not be more than 50 characters long')
         .custom((value, { req }) => {
             if (value !== req.body.password) {
-                console.log("this is it", value)
+                // console.log("this is it", value)
                 throw new Error('Confirm Password does not match Password');
             }
             return true;
