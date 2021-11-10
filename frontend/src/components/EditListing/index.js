@@ -9,26 +9,27 @@ import './EditListing.css';
 
 function EditListing() {
     const dispatch = useDispatch();
-    const { id } = useParams()
+    const { id } = useParams();
+    const sessionUserId = useSelector((state) => state.session.user.id);
     useEffect(() => {
         dispatch(getEditListing(id))
     }, [])
-    const history = useHistory();
-    const sessionUserId = useSelector((state) => state.session.user.id);
     const spot = useSelector(state => state.spots[id]);
-    console.log('this is it', spot?.Images[0].url)
-    const [title, setTitle] = useState("");
-    const [details, setDetails] = useState("")
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("")
-    const [country, setCountry] = useState("")
+    const history = useHistory();
+
+    console.log('this is it', spot)
+    const [title, setTitle] = useState(spot?.title);
+    const [details, setDetails] = useState(spot?.details)
+    const [city, setCity] = useState(spot?.city);
+    const [state, setState] = useState(spot?.state)
+    const [country, setCountry] = useState(spot?.country)
     const [url1, setUrl1] = useState(spot?.Images[0].url)
-    const [url2, setUrl2] = useState('')
-    const [url3, setUrl3] = useState('')
-    const [url4, setUrl4] = useState('')
-    const [url5, setUrl5] = useState('')
-    const [aboutThisSpace, setAboutThisSpace] = useState("")
-    const [price, setPrice] = useState("");
+    const [url2, setUrl2] = useState(spot?.Images[1].url)
+    const [url3, setUrl3] = useState(spot?.Images[2].url)
+    const [url4, setUrl4] = useState(spot?.Images[3].url)
+    const [url5, setUrl5] = useState(spot?.Images[4].url)
+    const [aboutThisSpace, setAboutThisSpace] = useState(spot?.aboutThisSpace)
+    const [price, setPrice] = useState(spot?.price);
 
 
 
@@ -58,7 +59,6 @@ function EditListing() {
         //     history.push(`/spot/${createdListing.spot.id}`)
         // }
     };
-
 
     return (
         <div className='parent-signup-div'>
@@ -218,6 +218,7 @@ function EditListing() {
             </div>
         </div>
     )
+
 }
 
 export default EditListing;
