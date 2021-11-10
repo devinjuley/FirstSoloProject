@@ -8,6 +8,7 @@ const sanJoseRouter = require('./sanjose.js')
 const spotRouter = require('./singleSpot.js')
 const createListing = require('./createlisting')
 const editListing = require('./editlisting')
+const deleteListing = require('./deletelisting')
 
 router.use('/session', sessionRouter);
 
@@ -27,6 +28,7 @@ router.use('/createlisting', createListing)
 
 router.use('/editlisting', editListing)
 
+router.use('/deletelisting', deleteListing)
 
 
 // router.post('/test', (req, res) => {
