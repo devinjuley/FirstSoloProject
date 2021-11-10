@@ -6,6 +6,7 @@ const LOAD_SAN_FRANCISCO = 'spots/LOAD_SAN_FRANCISCO';
 const LOAD_SAN_JOSE = 'spots/LOAD_SAN_JOSE';
 const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
 const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
+const DELETE_LISTING = 'spots/DELETE_LISTING';
 
 
 const loadBerkeley = list => ({
@@ -37,6 +38,11 @@ const addNewListing = list => ({
     type: ADD_NEW_LISTING,
     list
 })
+
+const deleteOneListing = list => ({
+    type: DELETE_LISTING,
+    list
+});
 
 export const getBerkeleySpots = () => async dispatch => {
     const response = await fetch('/api/berkeley');
@@ -119,6 +125,17 @@ export const editListing = (listing) => async dispatch => {
     }
 }
 
+export const deleteListing = (spotId) => async dispatch => {
+    const response = await csrfFetch(`/api/deletelisting/${spotId}`, {
+        method: 'DELETE',
+    })
+    if (response.ok) {
+        const listing = await response.json()
+        dispatch(deleteOneListing(listing))
+        return listing;
+    }
+}
+
 const initialState = {
     spots: false,
 };
@@ -171,6 +188,11 @@ const spotReducer = (state = initialState, action) => {
                 ...state,
                 [action.list.id]: action.list
             }
+            return newState;
+        }
+        case DELETE_LISTING: {
+            const newState = { ...state };
+            delete newState[action.list];
             return newState;
         }
 
