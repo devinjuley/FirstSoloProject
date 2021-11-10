@@ -1,6 +1,9 @@
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('./validation');
 
+const id = check('id')
+    .notEmpty()
+    .isInt({ min: 0 });
 const city = check('city')
     .notEmpty()
 const state = check('state')
@@ -34,6 +37,23 @@ const image5 = check('url5')
 
 
 exports.validateCreate = [
+    city,
+    state,
+    country,
+    title,
+    details,
+    aboutThisSpace,
+    price,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
+    handleValidationErrors,
+];
+
+exports.validateUpdate = [
+    id,
     city,
     state,
     country,

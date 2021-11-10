@@ -106,6 +106,19 @@ export const getEditListing = (spotId) => async dispatch => {
     }
 }
 
+export const editListing = (listing) => async dispatch => {
+    const response = await csrfFetch(`/api/editlisting/${listing.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(listing)
+    })
+    if (response.ok) {
+        const listing = await response.json()
+        dispatch(addNewListing(listing))
+        return listing;
+    }
+}
+
 const initialState = {
     spots: false,
 };
