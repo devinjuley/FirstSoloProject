@@ -1,38 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import * as sessionActions from '../../store/session';
+import React, { useState } from 'react';
+// import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { getOaklandSpots } from '../../store/spots';
+import { createNewSpot } from '../../store/spots';
+import { useHistory } from 'react-router-dom';
 import './CreateListing.css';
 
 function CreateListing() {
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    const history = useHistory();
+    const sessionUserId = useSelector((state) => state.session.user.id);
+    // console.log('this is it', sessionUserId)
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("")
     const [city, setCity] = useState("");
     const [state, setState] = useState("")
     const [country, setCountry] = useState("")
-    const [imageUrl1, setImageUrl1] = useState("")
-    const [imageUrl2, setImageUrl2] = useState("")
-    const [imageUrl3, setImageUrl3] = useState("")
-    const [imageUrl4, setImageUrl4] = useState("")
-    const [imageUrl5, setImageUrl5] = useState("")
-    const [errors, setErrors] = useState([]);
+    const [url1, setUrl1] = useState("")
+    const [url2, setUrl2] = useState("")
+    const [url3, setUrl3] = useState("")
+    const [url4, setUrl4] = useState("")
+    const [url5, setUrl5] = useState("")
+    const [aboutThisSpace, setAboutThisSpace] = useState("")
+    const [price, setPrice] = useState("");
+    // const [errors, setErrors] = useState([]);
 
-    if (!sessionUser) return <Redirect to="/login" />;
+    // if (!sessionUser) return <Redirect to="/login" />;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // if (password === confirmPassword) {
-        // setErrors([]);
-        return dispatch(sessionActions.signup({ title, details, city, state, country }))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            });
-        // }
-        // return setErrors(['Confirm Password and Password must match']);
+
+        const newListing = {
+            userId: sessionUserId,
+            title,
+            details,
+            city,
+            state,
+            country,
+            url1,
+            url2,
+            url3,
+            url4,
+            url5,
+            aboutThisSpace,
+            price
+        }
+
+        let createdListing = await dispatch(createNewSpot(newListing))
+        if (createdListing) {
+            console.log(createdListing)
+            history.push(`/spots/${createdListing.id}`)
+        }
     };
 
 
@@ -41,7 +59,7 @@ function CreateListing() {
             <div className='signup-page-div'>
                 <form onSubmit={handleSubmit}>
                     <ul className='signup-login-errors'>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                        {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
                     </ul>
                     <div className='email-div'>
                         <label className='email-label'>
@@ -105,12 +123,36 @@ function CreateListing() {
                     </div>
                     <div className='username-div'>
                         <label className='username-label'>
-                            Image URL:
+                            Image URL
                             <input className='username-input-box'
                                 placeholder='Enter an Image URL'
                                 type="text"
-                                value={imageUrl1}
-                                onChange={(e) => setImageUrl1(e.target.value)}
+                                value={url1}
+                                onChange={(e) => setUrl1(e.target.value)}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div className='username-div'>
+                        <label className='username-label'>
+                            Image URL
+                            <input className='username-input-box'
+                                placeholder='Enter an Image URL'
+                                type="text"
+                                value={url2}
+                                onChange={(e) => setUrl2(e.target.value)}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div className='username-div'>
+                        <label className='username-label'>
+                            Image URL
+                            <input className='username-input-box'
+                                placeholder='Enter an Image URL'
+                                type="text"
+                                value={url3}
+                                onChange={(e) => setUrl3(e.target.value)}
                                 required
                             />
                         </label>
@@ -121,44 +163,20 @@ function CreateListing() {
                             <input className='username-input-box'
                                 placeholder='Enter an Image URL'
                                 type="text"
-                                value={imageUrl2}
-                                onChange={(e) => setImageUrl2(e.target.value)}
+                                value={url4}
+                                onChange={(e) => setUrl4(e.target.value)}
                                 required
                             />
                         </label>
                     </div>
                     <div className='username-div'>
                         <label className='username-label'>
-                            Image URL:
+                            Image URL
                             <input className='username-input-box'
                                 placeholder='Enter an Image URL'
                                 type="text"
-                                value={imageUrl3}
-                                onChange={(e) => setImageUrl3(e.target.value)}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className='username-div'>
-                        <label className='username-label'>
-                            Image URL:
-                            <input className='username-input-box'
-                                placeholder='Enter an Image URL'
-                                type="text"
-                                value={imageUrl4}
-                                onChange={(e) => setImageUrl4(e.target.value)}
-                                required
-                            />
-                        </label>
-                    </div>
-                    <div className='username-div'>
-                        <label className='username-label'>
-                            Image URL:
-                            <input className='username-input-box'
-                                placeholder='Enter an Image URL'
-                                type="text"
-                                value={imageUrl5}
-                                onChange={(e) => setImageUrl5(e.target.value)}
+                                value={url5}
+                                onChange={(e) => setUrl5(e.target.value)}
                                 required
                             />
                         </label>
@@ -169,8 +187,20 @@ function CreateListing() {
                             <textarea className='username-input-box'
                                 placeholder='Write a little something about what your space has to offer'
                                 type="text"
-                                value={imageUrl5}
-                                onChange={(e) => setImageUrl5(e.target.value)}
+                                value={aboutThisSpace}
+                                onChange={(e) => setAboutThisSpace(e.target.value)}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div className='username-div'>
+                        <label className='username-label'>
+                            Price
+                            <input className='username-input-box'
+                                placeholder='Price per night'
+                                type="text"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
                                 required
                             />
                         </label>

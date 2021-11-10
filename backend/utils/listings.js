@@ -16,7 +16,19 @@ const aboutThisSpace = check('aboutThisSpace')
 const price = check('price')
     .notEmpty()
     .isInt({ min: 0 });
-const image = check('url')
+const image1 = check('url1')
+    .notEmpty()
+    .isURL({ require_protocol: false, require_host: false });
+const image2 = check('url2')
+    .notEmpty()
+    .isURL({ require_protocol: false, require_host: false });
+const image3 = check('url3')
+    .notEmpty()
+    .isURL({ require_protocol: false, require_host: false });
+const image4 = check('url4')
+    .notEmpty()
+    .isURL({ require_protocol: false, require_host: false });
+const image5 = check('url5')
     .notEmpty()
     .isURL({ require_protocol: false, require_host: false });
 
@@ -29,7 +41,11 @@ exports.validateCreate = [
     details,
     aboutThisSpace,
     price,
-    image,
+    image1,
+    image2,
+    image3,
+    image4,
+    image5,
     handleValidationErrors,
 ];
 

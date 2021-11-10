@@ -1,8 +1,11 @@
+import { csrfFetch } from './csrf';
+
 const LOAD_BERKELEY = 'spots/LOAD_BERKELEY';
 const LOAD_OAKLAND = 'spots/LOAD_OAKLAND';
 const LOAD_SAN_FRANCISCO = 'spots/LOAD_SAN_FRANCISCO';
 const LOAD_SAN_JOSE = 'spots/LOAD_SAN_JOSE';
 const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
+const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
 
 
 const loadBerkeley = list => ({
@@ -28,6 +31,11 @@ const loadSanJose = list => ({
 const loadSingleSpot = list => ({
     type: LOAD_SINGLE_SPOT,
     list,
+})
+
+const addNewListing = list => ({
+    type: ADD_NEW_LISTING,
+    list
 })
 
 export const getBerkeleySpots = () => async dispatch => {
@@ -72,6 +80,20 @@ export const getSingleSpot = (spotId) => async dispatch => {
     if (response.ok) {
         const spot = await response.json();
         dispatch(loadSingleSpot(spot));
+    }
+}
+
+export const createNewSpot = (newListing) => async dispatch => {
+    const response = await csrfFetch('/api/createlisting', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newListing)
+    });
+
+    if (response.ok) {
+        const newListing = await response.json();
+        dispatch(addNewListing(newListing));
+        return newListing;
     }
 }
 
@@ -120,6 +142,13 @@ const spotReducer = (state = initialState, action) => {
             const newState = { ...state }
             newState[action.list.id] = action.list;
             newState.spots = true;
+            return newState;
+        }
+        case ADD_NEW_LISTING: {
+            const newState = {
+                ...state,
+                [action.list.id]: action.list
+            }
             return newState;
         }
 
