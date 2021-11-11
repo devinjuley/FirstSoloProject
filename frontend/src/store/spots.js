@@ -7,6 +7,7 @@ const LOAD_SAN_JOSE = 'spots/LOAD_SAN_JOSE';
 const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
 const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
 const DELETE_LISTING = 'spots/DELETE_LISTING';
+const ADD_NEW_REVIEW = 'spots/ADD_NEW_REVIEW'
 
 
 const loadBerkeley = list => ({
@@ -36,6 +37,11 @@ const loadSingleSpot = list => ({
 
 const addNewListing = list => ({
     type: ADD_NEW_LISTING,
+    list
+})
+
+const addNewReview = list => ({
+    type: ADD_NEW_REVIEW,
     list
 })
 
@@ -100,6 +106,20 @@ export const createNewSpot = (newListing) => async dispatch => {
         const newListing = await response.json();
         dispatch(addNewListing(newListing));
         return newListing;
+    }
+}
+
+export const createNewReview = (newReview) => async dispatch => {
+    const response = await csrfFetch(`/api/createreview`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newReview)
+    });
+
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(addNewReview(review));
+        return review;
     }
 }
 
@@ -195,7 +215,13 @@ const spotReducer = (state = initialState, action) => {
             delete newState[action.list];
             return newState;
         }
-
+        case ADD_NEW_REVIEW: {
+            const newState = {
+                ...state,
+                [action.list.id]: action.list
+            }
+            return newState;
+        }
         default:
             return state;
     }

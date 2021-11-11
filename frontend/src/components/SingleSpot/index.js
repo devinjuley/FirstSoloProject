@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router-dom';
 import { getSingleSpot, deleteListing } from '../../store/spots';
+import LeaveReview from '../LeaveReviewModal';
 import './SingleSpot.css';
 
 function SingleSpot() {
@@ -89,6 +90,7 @@ function SingleSpot() {
                         {review.review}
                     </div>
                 })}
+                <LeaveReview spotId={id} />
             </div>
         </div>
 
