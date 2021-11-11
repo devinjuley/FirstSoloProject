@@ -23,8 +23,8 @@ function LeaveReview({ hideForm }) {
 
         setErrors([]);
         let submittedReview = await dispatch(createNewReview(newReview)).catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) setErrors(data.errors);
+            // const data = await res.json();
+            // if (data && data.errors) setErrors(data.errors);
         }
         );
         if (submittedReview) {

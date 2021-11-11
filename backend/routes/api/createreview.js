@@ -11,12 +11,22 @@ const router = express.Router();
 
 router.post('/', restoreUser, listingValidations.validateCreateReview, asyncHandler(async (req, res) => {
     const { review, spotId, userId } = req.body;
-    const newReview = await Review.create({
+    await Review.create({
         review,
         spotId,
         userId
     })
-    return res.json(newReview)
+    const spot = await Spot.findByPk(spotId, {
+        include: [
+            Image,
+            User,
+            {
+                model: Review,
+                include: [User]
+            }
+        ]
+    })
+    return res.json(spot)
 }))
 
 module.exports = router;

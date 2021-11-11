@@ -10,7 +10,7 @@ module.exports = {
       },
       url: {
         allowNull: false,
-        type: Sequelize.STRING(500)
+        type: Sequelize.STRING(1000)
       },
       spotId: {
         allowNull: false,
