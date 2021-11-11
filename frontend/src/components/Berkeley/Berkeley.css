@@ -11,6 +11,7 @@ be styled identically */
 .berkeley-main-images {
     height: 200px;
     width: 300px;
+    object-fit: cover;
     border-radius: 20px;
     /* display: inline-block; */
     /* padding-right: 10px; */

@@ -1,12 +1,10 @@
 .single-spot-top-level-div {
-
+    display: flex;
+    justify-content: center;
 }
 
 .single-spot-parent-container {
     margin-top: 80px;
-    margin-left: 26%;
-    margin-right: 10%;
-    width: 780px;
 }
 
 .single-spot-title {
@@ -15,36 +13,53 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .single-spot-location {
-    margin-bottom: 10px;
+    color: grey;
+    margin-bottom: 15px;
     font-size: 14px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .single-spot-parent-images {
  display: grid;
- grid-template-columns: 260px 260px 260px;
- padding: 0px;
+ /* grid-template-columns: 260px 260px 260px;
+ grid-template-rows: 100px 100px 100px; */
+ grid-template-areas:
+ 'img1 img1 img2 img3'
+ 'img1 img1 img4 img5';
+ /* padding: 0px; */
 }
 
-.single-spot-divs {
-    width: 250px;
-    /* margin: 10px; */
+/* .single-spot-divs:first-child {
+    width: 500px;
+    height: 500px;
     margin-bottom: 10px;
+    grid-area: img1;
+
+} */
+.single-spot-images {
+  width:330px;
+  height:150px;
+  object-fit: cover;
+  border-radius: 10px;
+  /* padding: 10px; */
+  margin-left: 5px;
+  margin-bottom: 5px;
 
 }
-.single-spot-images {
-    
-  width:250px;
-  height:189px;
-/* margin-left: 5px; */
-  border-radius: 12px;
-  /* display: flex; */
+
+.single-spot-images:first-child {
+    width: 625px;
+    height: 305px;
+    grid-area: img1;
+    margin-left: 0px;
+    margin-bottom: 0px;
 }
 .single-spot-images:hover {
     opacity: .9;
 }
 .single-spot-details {
-    margin-bottom: 10px;
+    color: grey;
+    margin-bottom: 20px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .single-spot-reviews {
@@ -53,11 +68,13 @@
 }
 
 .single-spot-aboutThisSpace {
+    margin-top: 25px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
 }
 
 .single-spot-host {
+    margin-top: 15px;
     margin-bottom: 5px;
     font-size: 22px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -70,7 +87,7 @@
 
 .single-spot-about-this-space {
     border-top: 1px solid lightgrey;
-    padding-top: 10px;
+    padding-top: 20px;
     margin-bottom: 10px;
     font-size: 22px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -85,8 +102,13 @@
     /* margin-top: 10px; */
     /* margin-left: 10px; */
     /* height: 285px; */
-    width: 250px;
-    height: 189px;
+    position:sticky;
+    /* right: 10px; */
+    /* bottom: 10px; */
+    width: 372px;
+    height: 276px;
+    margin-top: 15px;
+    margin-left: 125px;
     border: 1px solid lightgrey;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-radius: 12px;
@@ -94,10 +116,10 @@
 }
 
 .check-avail-button {
-    margin-left: 7px;
-    margin-top: 110px;
+    margin-left: 20px;
+    margin-top: 180px;
     height: 35px;
-    width: 235px;
+    width: 330px;
     border-radius: 5px;
     border: none;
     color: white;
@@ -105,8 +127,8 @@
 }
 
 .single-spot-price-per-night {
-    padding-top: 12px;
-    padding-left: 12px;
+    padding-top: 25px;
+    padding-left: 25px;
 }
 
 .single-spot-edit-button {

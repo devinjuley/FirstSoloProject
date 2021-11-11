@@ -97,23 +97,31 @@
 }
 
 .san-fran-icon {
-    height: 125px;
+    height: 120px;
+    width:150px;
    border-radius: 20px;
+   object-fit: cover;
 }
 
 .oakland-icon {
-    height: 125px;
-    border-radius: 20px;
+    height: 120px;
+    width:150px;
+   border-radius: 20px;
+   object-fit: cover;
 }
 
 .san-jose-icon {
-    height: 125px;
-    border-radius: 20px;
+    height: 120px;
+    width:150px;
+   border-radius: 20px;
+   object-fit: cover;
 }
 
 .berkeley-icon {
-    height: 125px;
-    border-radius: 20px;
+    height: 120px;
+    width:150px;
+   border-radius: 20px;
+   object-fit: cover;
 }
 
 .location-names-spans {
