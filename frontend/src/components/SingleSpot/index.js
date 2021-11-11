@@ -15,7 +15,8 @@ function SingleSpot() {
     const sessionUser = useSelector(state => state?.session.user);
     // console.log("session user", sessionUser)
     // console.log("spot user", spot.id)
-
+    const getReviews = useSelector(state => state)
+    console.log(getReviews)
     const handleDelete = (id) => {
         dispatch(deleteListing(id));
         history.push('/')
@@ -23,7 +24,7 @@ function SingleSpot() {
 
     let editLink;
     let deleteLink;
-    if (sessionUser?.id === spot?.User.id) {
+    if (sessionUser?.id === spot?.userId) {
         editLink = (
             <a href={`/editlisting/${spot?.id}`} className='single-spot-edit-button'>edit listing</a>
         )
@@ -56,7 +57,10 @@ function SingleSpot() {
                 </div>
                 <div className='single-spot-under-pics-parent'>
                     <div className='single-spot-under-pics'>
-                        <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
+                        <div className='single-spot-hosted-and-pic'>
+                            <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
+                            <span className='spot-user-headshot-span'><img src={spot?.User.photoUrl} className='spot-user-headshot'></img></span>
+                        </div>
                         <div className='single-spot-details'>{spot?.details} {editLink}</div>
                         <div className='single-spot-about-this-space'>About this Space</div>
                         <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
@@ -84,13 +88,17 @@ function SingleSpot() {
                     <div className='offerings-inner-divs'>Microwave</div>
                     <div className='offerings-inner-divs'>Long term stays allowed</div>
                 </div>
-                <div className='single-spot-reviews'>Reviews</div>
-                {spot?.Reviews.map(review => {
-                    return <div key={review.id} className='single-spot-reviews'>
-                        {review.review}
-                    </div>
-                })}
-                <LeaveReview spotId={id} />
+                {/* <div className='single-spot-reviews'>Reviews</div> */}
+                <div className='single-spot-reviews-container'>
+                    {spot?.Reviews.map(review => {
+                        return <div key={review?.id} className='single-spot-reviews'>
+                            <img src={review?.User.photoUrl} className='review-user-headshot' />
+                            <span>{review?.User.username}</span>
+                            <div className='review-div'> {review?.review} </div>
+                        </div>
+                    })}
+                </div>
+                <LeaveReview />
             </div>
         </div>
 
