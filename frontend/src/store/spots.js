@@ -30,9 +30,9 @@ const loadSanJose = list => ({
     list,
 })
 
-const loadSingleSpot = list => ({
+const loadSingleSpot = (list) => ({
     type: LOAD_SINGLE_SPOT,
-    list,
+    list
 })
 
 const addNewListing = list => ({
