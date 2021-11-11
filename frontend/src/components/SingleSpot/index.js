@@ -27,7 +27,9 @@ function SingleSpot() {
             <a href={`/editlisting/${spot?.id}`} className='single-spot-edit-button'>edit listing</a>
         )
         deleteLink = (
-            <button onClick={() => handleDelete(id)} className='single-spot-delete-button'>delete listing</button>
+            <span>•
+                <button onClick={() => handleDelete(id)} className='single-spot-delete-button'>remove listing</button>
+            </span>
         )
     }
     // console.log("this is spot", spot)
@@ -40,9 +42,10 @@ function SingleSpot() {
         <div className='single-spot-top-level-div'>
             <div className='single-spot-parent-container'>
                 <div className='single-spot-title'>{spot?.title}</div>
-                {editLink}
-                {deleteLink}
-                <div className='single-spot-location'>{spot?.city}, {spot?.state}, {spot?.country}</div>
+
+
+                <div className='single-spot-location'>{spot?.city}, {spot?.state}, {spot?.country} {deleteLink}</div>
+
                 <div className='single-spot-parent-images'>
                     {spot?.Images.map(image => {
                         return <img src={image.url} className='single-spot-images' key={image.id} />
@@ -53,15 +56,34 @@ function SingleSpot() {
                 <div className='single-spot-under-pics-parent'>
                     <div className='single-spot-under-pics'>
                         <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
-                        <div className='single-spot-details'>{spot?.details}</div>
+                        <div className='single-spot-details'>{spot?.details} {editLink}</div>
                         <div className='single-spot-about-this-space'>About this Space</div>
                         <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
                     </div>
                     <div className='single-spot-price'>
                         <div className='single-spot-price-per-night'>${spot?.price} / night</div>
+                        <div className='checkin-checkout-guests-parent'>
+                            <div className='checkin-div'>CHECK-IN</div>
+                            <div className='checkout-div'>CHECKOUT</div>
+                            <div className='guests-div'>GUESTS</div>
+                        </div>
                         <button className='check-avail-button'>Check Availability</button>
                     </div>
                 </div>
+                <div className='what-this-place-offers'>What this place offers</div>
+                <div className='offerings-parent-div'>
+                    <div className='offerings-inner-divs'> Kitchen</div>
+                    <div className='offerings-inner-divs'>Free street parking</div>
+                    <div className='offerings-inner-divs'>Backyard</div>
+                    <div className='offerings-inner-divs'>Refrigerator</div>
+                    <div className='offerings-inner-divs'>Dedicated workspace</div>
+                    <div className='offerings-inner-divs'>Wifi</div>
+                    <div className='offerings-inner-divs'>TV with standard cable</div>
+                    <div className='offerings-inner-divs'>Hair dryer</div>
+                    <div className='offerings-inner-divs'>Microwave</div>
+                    <div className='offerings-inner-divs'>Long term stays allowed</div>
+                </div>
+                <div className='single-spot-reviews'>Reviews</div>
                 {spot?.Reviews.map(review => {
                     return <div key={review.id} className='single-spot-reviews'>
                         {review.review}

@@ -125,12 +125,13 @@ list-style-type: none;
 }
 
 .profile-dropdown {
-    box-sizing: border-box;
-    /* border: 2px solid #15d08b; */
+   
     float: right;
-    width: fit-content;
+    width: 175px;
+    height: 150px;
+    border: none;
     list-style-type: none;
-    border-radius: 3px;
+    border-radius: 10px;
     background-color: #FFFDFA;
     /* padding: 20px; */
     margin-top: 50px;
@@ -142,14 +143,16 @@ list-style-type: none;
 }
 .logout-button-inside-dropdown {
     /* height: 40px;    */
-    margin-top: 10px;
+    margin-top: 12px;
+    margin-right: 56px;
     padding: 8px;
     border: none;
-    color: white;
-    background-color: orangered;
-    font-weight: bold;
+    color: black;
+    background-color: #FFFDFA;
+    /* font-weight: bold; */
     float: right;
-    border-radius: 25px;
+    /* border-radius: 25px; */
+    cursor: pointer;
 
 }
 /* .logout-button-inside-dropdown:hover {
@@ -158,11 +161,15 @@ list-style-type: none;
 } */
 
 #username-inside-dropdown {
+    margin-top: 10px;
+    margin-left: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eeebeb;
 }
 
 #email-inside-dropdown {
+    margin-top: 10px;
+    margin-left: 10px;
     padding-top: 10px;
     border-bottom: 1px solid #eeebeb;
     padding-bottom: 10px;
