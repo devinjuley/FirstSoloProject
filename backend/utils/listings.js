@@ -34,6 +34,8 @@ const image4 = check('url4')
 const image5 = check('url5')
     .notEmpty()
     .isURL({ require_protocol: false, require_host: false });
+const review = check('review')
+    .notEmpty()
 
 
 exports.validateCreate = [
@@ -68,6 +70,10 @@ exports.validateUpdate = [
     image5,
     handleValidationErrors,
 ];
+
+exports.validateCreateReview = [
+    review
+]
 
 
 

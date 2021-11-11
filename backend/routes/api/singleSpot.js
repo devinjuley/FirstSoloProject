@@ -12,7 +12,12 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const spot = await Spot.findByPk(req.params.id, {
         include: [User, Image, Review]
     })
-    // const users = await User.findAll()
+    // const reviews = await Review.findAll({
+    //     where: {
+    //         spotId: req.params.id
+    //     },
+    //     include: User
+    // })
     return res.json(spot)
 }))
 

@@ -9,6 +9,7 @@ const spotRouter = require('./singleSpot.js')
 const createListing = require('./createlisting')
 const editListing = require('./editlisting')
 const deleteListing = require('./deletelisting')
+const createReview = require('./createreview')
 
 router.use('/session', sessionRouter);
 
@@ -29,6 +30,8 @@ router.use('/createlisting', createListing)
 router.use('/editlisting', editListing)
 
 router.use('/deletelisting', deleteListing)
+
+router.use('/createreview', createReview)
 
 
 // router.post('/test', (req, res) => {
