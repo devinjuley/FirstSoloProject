@@ -13,7 +13,7 @@ import SanJose from './components/SanJose'
 import SingleSpot from "./components/SingleSpot";
 import CreateListing from "./components/CreateListing";
 import EditListing from "./components/EditListing";
-// import LeaveReview from "./components/LeaveReviewModal";
+import AllSpots from "./components/AllSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,9 +57,9 @@ function App() {
           <Route path='/editlisting/:id'>
             <EditListing isLoaded={isLoaded} />
           </Route>
-          {/* <Route path='/leavereview/:id'>
-            <LeaveReviewModal />
-          </Route> */}
+          <Route path='/allspots'>
+            <AllSpots />
+          </Route>
         </Switch>
       )}
     </>

@@ -24,6 +24,10 @@ function HomePage() {
                     </label>
                 </form>
             </div>
+            <div className='get-all-spots-title'>Not sure where to go? Perfect.</div>
+            <div>
+                <a href='/allspots' className='get-all-spots'>I'm flexible</a>
+            </div>
             <div className='explore-nearby-title-div'>
                 <span className='explore-nearby-title'>Explore nearby</span>
             </div>
