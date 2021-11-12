@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { createNewReview } from "../../store/spots";
 import { useParams } from "react-router";
-import { useHistory } from 'react-router-dom';
+
 
 function LeaveReview({ hideForm }) {
     const sessionUser = useSelector(state => state?.session.user);
     const dispatch = useDispatch();
     const { id } = useParams()
-    const history = useHistory()
     const [review, setReview] = useState("");
     const [errors, setErrors] = useState([]);
     const handleSubmit = async (e) => {
@@ -20,16 +18,16 @@ function LeaveReview({ hideForm }) {
             userId: sessionUser.id,
             spotId: id
         }
-
+        setErrors([]);
         let submittedReview = await dispatch(createNewReview(newReview))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
-            }
-            );
+        // .catch(async (res) => {
+        //     const data = await res.json();
+        //     if (data && data.errors) setErrors(data.errors);
+        // }
+        // );
         if (submittedReview) {
             hideForm()
-            // history.push(`/spot/${id}`)
+
         }
     };
 
@@ -37,9 +35,9 @@ function LeaveReview({ hideForm }) {
     return (
         <form onSubmit={handleSubmit}>
             <ul>
-                {errors.map((error, idx) => (
+                {/* {errors.map((error, idx) => (
                     <li key={idx}>{error}</li>
-                ))}
+                ))} */}
             </ul>
             <label>
                 Leave a review
@@ -47,7 +45,7 @@ function LeaveReview({ hideForm }) {
                     type="text"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
-
+                    required
                 />
             </label>
             <button type="submit">Submit</button>
