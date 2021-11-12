@@ -8,7 +8,12 @@ const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
 const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
 const DELETE_LISTING = 'spots/DELETE_LISTING';
 const ADD_NEW_REVIEW = 'spots/ADD_NEW_REVIEW'
+const LOAD_ALL = 'spots/LOAD_ALL'
 
+const loadAll = list => ({
+    type: LOAD_ALL,
+    list
+})
 
 const loadBerkeley = list => ({
     type: LOAD_BERKELEY,
@@ -49,6 +54,15 @@ const deleteOneListing = list => ({
     type: DELETE_LISTING,
     list
 });
+
+export const getAllSpots = () => async dispatch => {
+    const response = await fetch('/api/allspots');
+
+    if (response.ok) {
+        const spots = await response.json();
+        dispatch(loadAll(spots));
+    }
+}
 
 export const getBerkeleySpots = () => async dispatch => {
     const response = await fetch('/api/berkeley');
@@ -220,6 +234,14 @@ const spotReducer = (state = initialState, action) => {
                 ...state,
                 [action.list.id]: action.list
             }
+            return newState;
+        }
+        case LOAD_ALL: {
+            const newState = { ...state }
+            action.list.forEach(spot => {
+                newState[spot.id] = spot;
+            })
+            newState.spots = true;
             return newState;
         }
         default:

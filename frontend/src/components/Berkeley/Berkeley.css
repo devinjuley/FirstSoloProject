@@ -5,7 +5,10 @@ and San Francisco Components.  This is because they all needed to
 be styled identically */
 
 .top-level-div {
-    display: flex;
+    display: grid;
+    grid-template-areas: 
+    '1 2';
+    grid-template-columns: 800px max-content;
 }
 
 .berkeley-main-images {
@@ -78,15 +81,16 @@ be styled identically */
 
 .berkeley-map-parent-container {
     margin-top: 40px;
-
-    
+    /* width: 100%; */
+    height: 1000px;
+    /* grid-area: 2; */
 }
 
 .berkeley-map {
     border: none;
     position: fixed;
-    /* height: 1000px; */
-    /* width: 800px; */
-    width: 100%;
+    /* object-fit: cover; */
     height: 1000px;
+    width: 100%;
+    /* grid-area: 2; */
 }

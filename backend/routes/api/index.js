@@ -10,6 +10,7 @@ const createListing = require('./createlisting')
 const editListing = require('./editlisting')
 const deleteListing = require('./deletelisting')
 const createReview = require('./createreview')
+const allSpots = require('./allSpots')
 
 router.use('/session', sessionRouter);
 
@@ -32,6 +33,8 @@ router.use('/editlisting', editListing)
 router.use('/deletelisting', deleteListing)
 
 router.use('/createreview', createReview)
+
+router.use('/allspots', allSpots)
 
 
 // router.post('/test', (req, res) => {
