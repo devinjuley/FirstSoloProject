@@ -20,6 +20,10 @@ const validateSignup = [
         .not()
         .isEmail()
         .withMessage('Username cannot be an email'),
+    check('photoUrl')
+        .notEmpty()
+        .isURL({ require_protocol: false, require_host: false })
+        .withMessage('Please provide a valid URL address'),
     check('password')
         .exists({ checkFalsy: true })
         .isLength({ min: 6 })
@@ -41,8 +45,9 @@ const validateSignup = [
 
 // Sign up
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
-    const { email, password, username } = req.body;
-    const user = await User.signup({ email, username, password });
+    console.log(req.body)
+    const { email, password, username, photoUrl } = req.body;
+    const user = await User.signup({ email, username, password, photoUrl });
 
     await setTokenCookie(res, user);
 
