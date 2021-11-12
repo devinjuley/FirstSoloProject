@@ -18,16 +18,20 @@ function LeaveReview({ hideForm }) {
             userId: sessionUser.id,
             spotId: id
         }
-        setErrors([]);
-        let submittedReview = await dispatch(createNewReview(newReview))
-        // .catch(async (res) => {
-        //     const data = await res.json();
-        //     if (data && data.errors) setErrors(data.errors);
-        // }
-        // );
-        if (submittedReview) {
-            hideForm()
+        if (newReview.review.length > 0) {
+            setErrors([]);
+            let submittedReview = await dispatch(createNewReview(newReview))
+                .catch(async (res) => {
+                    const data = await res.json();
+                    if (data && data.errors) setErrors(data.errors);
+                }
+                );
+            if (submittedReview) {
+                hideForm()
 
+            }
+        } else {
+            return setErrors(['Please provide a review'])
         }
     };
 
@@ -35,20 +39,22 @@ function LeaveReview({ hideForm }) {
     return (
         <div className='leave-review-form'>
             <form onSubmit={handleSubmit} >
-                <ul>
-                    {/* {errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))} */}
-                </ul>
                 <label>
-                    <div className='leave-a-review-title'>
-                        Leave a review
+                    <div className='title-handler-div'>
+                        <div className='leave-a-review-title'>
+                            Leave a review
+                        </div>
+                        <ul className='review-error-handler'>
+                            {errors.map((error, idx) => (
+                                <li key={idx}>{error}</li>
+                            ))}
+                        </ul>
                     </div>
                     <textarea className='leave-review-textarea'
                         type="text"
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
-                        required
+
                     />
                 </label>
                 <div>
