@@ -15,8 +15,8 @@ function SingleSpot() {
     const sessionUser = useSelector(state => state?.session.user);
     // console.log("session user", sessionUser)
     // console.log("spot user", spot.id)
-    const getReviews = useSelector(state => state)
-    console.log(getReviews)
+    // const getReviews = useSelector(state => state)
+    // console.log(getReviews)
     const handleDelete = (id) => {
         dispatch(deleteListing(id));
         history.push('/')
@@ -85,12 +85,12 @@ function SingleSpot() {
                             <div className='offerings-inner-divs'>Microwave</div>
                             <div className='offerings-inner-divs'>Long term stays allowed</div>
                         </div>
-                        <div className=''>
+                        {/* <div className=''>
                             <div>Entire home</div>
                             <div>Enhanced Clean</div>
                             <div>Self check-in</div>
                             <div>Great location</div>
-                        </div>
+                        </div> */}
                     </div>
                     <div className='single-spot-price-parent'>
                         <div className='single-spot-price'>

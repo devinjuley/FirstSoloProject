@@ -33,23 +33,29 @@ function LeaveReview({ hideForm }) {
 
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {/* {errors.map((error, idx) => (
+        <div className='leave-review-form'>
+            <form onSubmit={handleSubmit} >
+                <ul>
+                    {/* {errors.map((error, idx) => (
                     <li key={idx}>{error}</li>
                 ))} */}
-            </ul>
-            <label>
-                Leave a review
-                <textarea
-                    type="text"
-                    value={review}
-                    onChange={(e) => setReview(e.target.value)}
-                    required
-                />
-            </label>
-            <button type="submit">Submit</button>
-        </form>
+                </ul>
+                <label>
+                    <div className='leave-a-review-title'>
+                        Leave a review
+                    </div>
+                    <textarea className='leave-review-textarea'
+                        type="text"
+                        value={review}
+                        onChange={(e) => setReview(e.target.value)}
+                        required
+                    />
+                </label>
+                <div>
+                    <button type="submit" className='leave-review-submit-button'>Submit</button>
+                </div>
+            </form>
+        </div>
     );
 }
 

@@ -21,8 +21,17 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 router.put('/:id(\\d+)', listingValidations.validateUpdate, restoreUser, asyncHandler(async (req, res) => {
 
     const { userId, city, state, country, title, details, aboutThisSpace, price, url1, url2, url3, url4, url5 } = req.body;
-    const spot = await Spot.findByPk(req.params.id)
-    const updatedSpot = spot.update({
+    const spot = await Spot.findByPk(req.params.id, {
+        include: [
+            Image,
+            User,
+            {
+                model: Review,
+                include: [User]
+            }
+        ]
+    })
+    spot.update({
         userId,
         city,
         state,
@@ -56,7 +65,7 @@ router.put('/:id(\\d+)', listingValidations.validateUpdate, restoreUser, asyncHa
 
 
     return res.json({
-        updatedSpot,
+        spot,
         image1,
         image2,
         image3,
