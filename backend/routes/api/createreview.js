@@ -10,7 +10,6 @@ const listingValidations = require('../../utils/listings')
 const router = express.Router();
 
 router.post('/', restoreUser, asyncHandler(async (req, res) => {
-    console.log("req body:", req.body)
     const { review, spotId, userId } = req.body;
     await Review.create({
         review,

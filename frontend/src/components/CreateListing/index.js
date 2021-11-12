@@ -133,7 +133,7 @@ function CreateListing() {
                                 type="text"
                                 value={url1}
                                 onChange={(e) => setUrl1(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -169,7 +169,7 @@ function CreateListing() {
                                 type="text"
                                 value={url4}
                                 onChange={(e) => setUrl4(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -181,7 +181,7 @@ function CreateListing() {
                                 type="text"
                                 value={url5}
                                 onChange={(e) => setUrl5(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>

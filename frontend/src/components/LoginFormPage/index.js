@@ -33,10 +33,10 @@ function LoginFormPage() {
     return (
         <div className='parent-login-div'>
             <div className='login-page-div'>
+                <ul className='signup-login-errors'>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
                 <form onSubmit={handleSubmit}>
-                    <ul className='signup-login-errors'>
-                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-                    </ul>
                     <div className='username-email-div'>
                         <label className='username-email-label'>
                             Username or Email
@@ -45,7 +45,7 @@ function LoginFormPage() {
                                 type="text"
                                 value={credential}
                                 onChange={(e) => setCredential(e.target.value)}
-                                required
+                            // required
                             />
                         </label>
                     </div>
@@ -57,7 +57,7 @@ function LoginFormPage() {
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                required
+                            // required
                             />
                         </label>
                     </div>
