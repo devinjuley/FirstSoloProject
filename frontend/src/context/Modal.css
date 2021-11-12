@@ -19,6 +19,9 @@
   }
   
   #modal-content {
+    border-radius: 12px;
     position: absolute;
     background-color:white;
+    height: 355px;
+    width: 450px;
   }
