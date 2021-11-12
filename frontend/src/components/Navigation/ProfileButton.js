@@ -5,10 +5,11 @@ import './Navigation.css';
 import dropDownMenuImage from './iconmonstr-user-icon.png'
 import emailImage from './iconmonstr-paper-plane-resized.png'
 import userImageInsideDropdown from './iconmonstr-user-inside-dropdown.png'
+import { useHistory } from 'react-router-dom';
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
     const [showMenu, setShowMenu] = useState(false);
-
+    const history = useHistory()
     const openMenu = () => {
         if (showMenu) return;
         setShowMenu(true);
@@ -29,6 +30,7 @@ function ProfileButton({ user }) {
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());
+        history.push('/')
     };
 
     return (

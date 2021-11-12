@@ -11,6 +11,7 @@ function SignupFormPage() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [photoUrl, setPhotoUrl] = useState("")
     const [errors, setErrors] = useState([]);
 
     if (sessionUser) return <Redirect to="/" />;
@@ -19,7 +20,7 @@ function SignupFormPage() {
         e.preventDefault();
         // if (password === confirmPassword) {
         // setErrors([]);
-        return dispatch(sessionActions.signup({ email, username, password, confirmPassword }))
+        return dispatch(sessionActions.signup({ email, username, password, photoUrl, confirmPassword }))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) setErrors(data.errors);
@@ -56,6 +57,18 @@ function SignupFormPage() {
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                                 required
+                            />
+                        </label>
+                    </div>
+                    <div className='username-div'>
+                        <label className='username-label'>
+                            Profile photo
+                            <input className='username-input-box'
+                                placeholder='Enter an Image URL'
+                                type="text"
+                                value={photoUrl}
+                                onChange={(e) => setPhotoUrl(e.target.value)}
+
                             />
                         </label>
                     </div>

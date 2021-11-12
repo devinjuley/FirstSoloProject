@@ -29,6 +29,7 @@ function EditListing() {
     const [url5, setUrl5] = useState(spot?.Images[4].url)
     const [aboutThisSpace, setAboutThisSpace] = useState(spot?.aboutThisSpace)
     const [price, setPrice] = useState(spot?.price);
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         if (spot) {
@@ -81,6 +82,10 @@ function EditListing() {
         }
 
         let updatedListing = await dispatch(editListing(updateListing))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
         if (updatedListing) {
             history.push(`/spot/${id}`)
         }
@@ -91,7 +96,7 @@ function EditListing() {
             <div className='signup-page-div'>
                 <form onSubmit={handleSubmit}>
                     <ul className='signup-login-errors'>
-                        {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className='email-div'>
                         <label className='email-label'>
@@ -101,7 +106,7 @@ function EditListing() {
                                 type="text"
                                 value={title}
                                 onChange={updateTitle}
-                                required
+
                             />
                         </label>
                     </div>
@@ -113,7 +118,7 @@ function EditListing() {
                                 type="text"
                                 value={details}
                                 onChange={updateDetails}
-                                required
+
                             />
                         </label>
                     </div>
@@ -125,7 +130,7 @@ function EditListing() {
                                 type="text"
                                 value={city}
                                 onChange={updateCity}
-                                required
+
                             />
                         </label>
                     </div>
@@ -137,7 +142,7 @@ function EditListing() {
                                 type="text"
                                 value={state}
                                 onChange={updateState}
-                                required
+
                             />
                         </label>
                     </div>
@@ -149,7 +154,7 @@ function EditListing() {
                                 type="text"
                                 value={country}
                                 onChange={updateCountry}
-                                required
+
                             />
                         </label>
                     </div>
@@ -161,7 +166,7 @@ function EditListing() {
                                 type="text"
                                 value={url1}
                                 onChange={updateUrl1}
-                                required
+
                             />
                         </label>
                     </div>
@@ -173,7 +178,7 @@ function EditListing() {
                                 type="text"
                                 value={url2}
                                 onChange={updateUrl2}
-                                required
+
                             />
                         </label>
                     </div>
@@ -185,7 +190,7 @@ function EditListing() {
                                 type="text"
                                 value={url3}
                                 onChange={updateUrl3}
-                                required
+
                             />
                         </label>
                     </div>
@@ -197,7 +202,7 @@ function EditListing() {
                                 type="text"
                                 value={url4}
                                 onChange={updateUrl4}
-                                required
+
                             />
                         </label>
                     </div>
@@ -209,7 +214,7 @@ function EditListing() {
                                 type="text"
                                 value={url5}
                                 onChange={updateUrl5}
-                                required
+
                             />
                         </label>
                     </div>
@@ -221,7 +226,7 @@ function EditListing() {
                                 type="text"
                                 value={aboutThisSpace}
                                 onChange={updateAboutThisSpace}
-                                required
+
                             />
                         </label>
                     </div>

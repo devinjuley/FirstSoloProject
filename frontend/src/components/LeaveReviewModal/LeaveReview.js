@@ -21,12 +21,12 @@ function LeaveReview({ hideForm }) {
             spotId: id
         }
 
-        setErrors([]);
-        let submittedReview = await dispatch(createNewReview(newReview)).catch(async (res) => {
-            // const data = await res.json();
-            // if (data && data.errors) setErrors(data.errors);
-        }
-        );
+        let submittedReview = await dispatch(createNewReview(newReview))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            }
+            );
         if (submittedReview) {
             hideForm()
             // history.push(`/spot/${id}`)
@@ -47,7 +47,7 @@ function LeaveReview({ hideForm }) {
                     type="text"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
-                    required
+
                 />
             </label>
             <button type="submit">Submit</button>

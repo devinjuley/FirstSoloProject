@@ -9,7 +9,7 @@ import './CreateListing.css';
 function CreateListing() {
     const dispatch = useDispatch();
     const history = useHistory();
-    const sessionUserId = useSelector((state) => state.session.user.id);
+    const sessionUserId = useSelector((state) => state?.session.user.id);
     // console.log('this is it', sessionUserId)
     const [title, setTitle] = useState("");
     const [details, setDetails] = useState("")
@@ -23,9 +23,9 @@ function CreateListing() {
     const [url5, setUrl5] = useState("")
     const [aboutThisSpace, setAboutThisSpace] = useState("")
     const [price, setPrice] = useState("");
-    // const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
 
-    // if (!sessionUser) return <Redirect to="/login" />;
+    // if (!sessionUserId) return <Redirect to="/login" />;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,6 +47,10 @@ function CreateListing() {
         }
 
         let createdListing = await dispatch(createNewSpot(newListing))
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) setErrors(data.errors);
+            });
         console.log("created listing:", createdListing)
         if (createdListing) {
             history.push(`/spot/${createdListing.spot.id}`)
@@ -59,7 +63,7 @@ function CreateListing() {
             <div className='signup-page-div'>
                 <form onSubmit={handleSubmit}>
                     <ul className='signup-login-errors'>
-                        {/* {errors.map((error, idx) => <li key={idx}>{error}</li>)} */}
+                        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                     </ul>
                     <div className='email-div'>
                         <label className='email-label'>
@@ -69,7 +73,7 @@ function CreateListing() {
                                 type="text"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -81,7 +85,7 @@ function CreateListing() {
                                 type="text"
                                 value={details}
                                 onChange={(e) => setDetails(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -93,7 +97,7 @@ function CreateListing() {
                                 type="text"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -105,7 +109,7 @@ function CreateListing() {
                                 type="text"
                                 value={state}
                                 onChange={(e) => setState(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -117,7 +121,7 @@ function CreateListing() {
                                 type="text"
                                 value={country}
                                 onChange={(e) => setCountry(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -141,7 +145,7 @@ function CreateListing() {
                                 type="text"
                                 value={url2}
                                 onChange={(e) => setUrl2(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -153,7 +157,7 @@ function CreateListing() {
                                 type="text"
                                 value={url3}
                                 onChange={(e) => setUrl3(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -189,7 +193,7 @@ function CreateListing() {
                                 type="text"
                                 value={aboutThisSpace}
                                 onChange={(e) => setAboutThisSpace(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
@@ -201,7 +205,7 @@ function CreateListing() {
                                 type="text"
                                 value={price}
                                 onChange={(e) => setPrice(e.target.value)}
-                                required
+
                             />
                         </label>
                     </div>
