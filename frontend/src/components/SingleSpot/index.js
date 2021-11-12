@@ -74,7 +74,7 @@ function SingleSpot() {
                         <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
                         <div className='what-this-place-offers'>What this place offers</div>
                         <div className='offerings-parent-div'>
-                            <div className='offerings-inner-divs'> Kitchen</div>
+                            <div className='offerings-inner-divs'>Kitchen</div>
                             <div className='offerings-inner-divs'>Free street parking</div>
                             <div className='offerings-inner-divs'>Backyard</div>
                             <div className='offerings-inner-divs'>Refrigerator</div>
@@ -85,12 +85,20 @@ function SingleSpot() {
                             <div className='offerings-inner-divs'>Microwave</div>
                             <div className='offerings-inner-divs'>Long term stays allowed</div>
                         </div>
-                        {/* <div className=''>
-                            <div>Entire home</div>
-                            <div>Enhanced Clean</div>
-                            <div>Self check-in</div>
-                            <div>Great location</div>
-                        </div> */}
+                        <div className='other-features-parent'>
+                            <div className='other-features-inner-divs-title'>Entire home
+                                <div className='other-features-inner-divs-content'>You’ll have the guesthouse to yourself.</div>
+                            </div>
+                            <div className='other-features-inner-divs-title'>Enhanced Clean
+                                <div className='other-features-inner-divs-content'>This Host committed to Airbnb's 5-step enhanced cleaning process.</div>
+                            </div>
+                            <div className='other-features-inner-divs-title'>Self Check-in
+                                <div className='other-features-inner-divs-content'>Check yourself in with the lockbox.</div>
+                            </div>
+                            <div className='other-features-inner-divs-title'>Great location
+                                <div className='other-features-inner-divs-content'>100% of recent guests gave the location a 5-star rating.</div>
+                            </div>
+                        </div>
                     </div>
                     <div className='single-spot-price-parent'>
                         <div className='single-spot-price'>
@@ -112,8 +120,8 @@ function SingleSpot() {
                     {spot?.Reviews.map(review => {
                         return <div key={review?.id} className='single-spot-reviews'>
                             <div className='username-and-photo'>
-                                <img src={review?.User.photoUrl} className='review-user-headshot' />
-                                <span className='review-username'>{review?.User.username}</span>
+                                <img src={review?.User?.photoUrl} className='review-user-headshot' />
+                                <span className='review-username'>{review?.User?.username}</span>
                             </div>
                             <div className='review-div'> {review?.review} </div>
                         </div>
