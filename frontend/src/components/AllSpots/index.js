@@ -39,6 +39,7 @@ function AllSpots() {
                         </div>
                     </div>
 
+
                 })}
             </div>
             <div className='berkeley-map-parent-container'>
