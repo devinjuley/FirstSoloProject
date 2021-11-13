@@ -48,7 +48,7 @@ const image5 = check('url5')
     .withMessage('Please provide a valid URL address');
 const review = check('review')
     .exists({ checkFalsy: true })
-    // .notEmpty()
+    .notEmpty()
     .withMessage('Please provide a review');
 
 
