@@ -2,14 +2,27 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router';
+import { getSearch } from '../../store/spots';
 import './HomePage.css';
 
 function HomePage() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
+    const history = useHistory()
     // const sessionUser = useSelector(state => state.session.user);
-    // const [credential, setCredential] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
     // const [password, setPassword] = useState('');
     // const [errors, setErrors] = useState([]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('search term', searchTerm)
+        let searchParam = await dispatch(getSearch(searchTerm))
+        console.log('search param', searchParam)
+        if (searchParam) {
+            history.push(`/allspots/${searchTerm}`)
+        }
+    }
 
     return (
         <div>
@@ -17,10 +30,10 @@ function HomePage() {
                 <img src='https://media.discordapp.net/attachments/907008758226489385/907022889868472391/unknown.png?width=1220&height=686' alt='green forest' className='homeImage'></img>
             </div>
             <div className='inner-search-div'>
-                <form className='search-bar'>
+                <form className='search-bar' onSubmit={handleSubmit}>
                     <label>
-                        <input className='search-bar-input' type='search' placeholder='Where would you like to visit?' />
-                        <button className='search-button'>Go!</button>
+                        <input className='search-bar-input' type='search' placeholder='Where would you like to visit?' value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} required />
+                        <button type='submit' className='search-button'>Go!</button>
                     </label>
                 </form>
             </div>

@@ -14,6 +14,7 @@ import SingleSpot from "./components/SingleSpot";
 import CreateListing from "./components/CreateListing";
 import EditListing from "./components/EditListing";
 import AllSpots from "./components/AllSpots";
+import SearchResultSpots from "./components/SearchResultSpots";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,8 +58,11 @@ function App() {
           <Route path='/editlisting/:id'>
             <EditListing isLoaded={isLoaded} />
           </Route>
-          <Route path='/allspots'>
+          <Route exact path='/allspots'>
             <AllSpots />
+          </Route>
+          <Route path='/allspots/:searchTerm'>
+            <SearchResultSpots />
           </Route>
         </Switch>
       )}

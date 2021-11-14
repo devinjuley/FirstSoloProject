@@ -9,9 +9,15 @@ const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
 const DELETE_LISTING = 'spots/DELETE_LISTING';
 const ADD_NEW_REVIEW = 'spots/ADD_NEW_REVIEW'
 const LOAD_ALL = 'spots/LOAD_ALL'
+const SEARCH = '/spots/SEARCH'
 
 const loadAll = list => ({
     type: LOAD_ALL,
+    list
+})
+
+const search = list => ({
+    type: SEARCH,
     list
 })
 
@@ -61,6 +67,16 @@ export const getAllSpots = () => async dispatch => {
     if (response.ok) {
         const spots = await response.json();
         dispatch(loadAll(spots));
+    }
+}
+
+export const getSearch = (searchTerm) => async dispatch => {
+    const response = await csrfFetch(`/api/allspots/${searchTerm}`);
+
+    if (response.ok) {
+        const searchTerm = await response.json();
+        dispatch(search(searchTerm));
+        return searchTerm;
     }
 }
 
@@ -238,6 +254,14 @@ const spotReducer = (state = initialState, action) => {
         }
         case LOAD_ALL: {
             const newState = { ...state }
+            action.list.forEach(spot => {
+                newState[spot.id] = spot;
+            })
+            newState.spots = true;
+            return newState;
+        }
+        case SEARCH: {
+            const newState = {}
             action.list.forEach(spot => {
                 newState[spot.id] = spot;
             })

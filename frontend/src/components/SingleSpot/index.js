@@ -26,7 +26,9 @@ function SingleSpot() {
     let deleteLink;
     if (sessionUser?.id === spot?.userId) {
         editLink = (
-            <a href={`/editlisting/${spot?.id}`} className='single-spot-edit-button'>edit listing</a>
+            <span>•
+                <a href={`/editlisting/${spot?.id}`} className='single-spot-edit-button'>edit listing</a>
+            </span>
         )
         deleteLink = (
             <span>•
@@ -53,7 +55,7 @@ function SingleSpot() {
                 <div className='single-spot-title'>{spot?.title}</div>
 
 
-                <div className='single-spot-location'>{spot?.city}, {spot?.state}, {spot?.country} {deleteLink}</div>
+                <div className='single-spot-location'>{spot?.city}, {spot?.state}, {spot?.country} {deleteLink} {editLink}</div>
 
                 <div className='single-spot-parent-images'>
                     {spot?.Images.map(image => {
@@ -69,7 +71,7 @@ function SingleSpot() {
                             <div className='single-spot-host'>Entire rental unit hosted by {spot?.User.username}</div>
                             <span className='spot-user-headshot-span'><img src={spot?.User.photoUrl} className='spot-user-headshot'></img></span>
                         </div>
-                        <div className='single-spot-details'>{spot?.details} {editLink}</div>
+                        <div className='single-spot-details'>{spot?.details}</div>
                         <div className='single-spot-about-this-space'>About this Space</div>
                         <div className='single-spot-aboutThisSpace'>{spot?.aboutThisSpace}</div>
                         <div className='what-this-place-offers'>What this place offers</div>
