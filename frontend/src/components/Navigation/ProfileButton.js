@@ -43,10 +43,11 @@ function ProfileButton({ user }) {
                 <ul className="profile-dropdown">
                     <li id='username-inside-dropdown'>
                         <img src={userImageInsideDropdown} alt='email' id='email-image-dropdown' />
-                        {user.username}</li>
+                        <span>{user.username}</span>
+                    </li>
                     <li id='email-inside-dropdown'>
                         <img src={emailImage} alt='email' id='email-image-dropdown' />
-                        {user.email}
+                        <span>{user.email}</span>
                     </li>
                     <li>
                         <button onClick={logout} className='logout-button-inside-dropdown'>Log Out</button>
