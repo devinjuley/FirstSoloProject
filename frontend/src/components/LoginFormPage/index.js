@@ -41,7 +41,7 @@ function LoginFormPage() {
                         <label className='username-email-label'>
                             Username or Email
                             <input className='username-input-box'
-                                placeholder='Enter Username or Email'
+                                placeholder='Enter username or email'
                                 type="text"
                                 value={credential}
                                 onChange={(e) => setCredential(e.target.value)}
@@ -53,7 +53,7 @@ function LoginFormPage() {
                         <label className='password-label'>
                             Password
                             <input className='password-input-box'
-                                placeholder='Enter Password'
+                                placeholder='Enter password'
                                 type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}

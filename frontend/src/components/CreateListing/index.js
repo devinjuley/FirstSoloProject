@@ -93,7 +93,7 @@ function CreateListing() {
                         <label className='username-label'>
                             City
                             <input className='username-input-box'
-                                placeholder='Enter city'
+                                placeholder='Enter City'
                                 type="text"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
@@ -105,7 +105,7 @@ function CreateListing() {
                         <label className='username-label'>
                             State
                             <input className='username-input-box'
-                                placeholder='Enter city'
+                                placeholder='Enter State'
                                 type="text"
                                 value={state}
                                 onChange={(e) => setState(e.target.value)}

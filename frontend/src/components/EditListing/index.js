@@ -126,7 +126,7 @@ function EditListing() {
                         <label className='username-label'>
                             City
                             <input className='username-input-box'
-                                placeholder='Enter city'
+                                placeholder='Enter City'
                                 type="text"
                                 value={city}
                                 onChange={updateCity}
@@ -138,7 +138,7 @@ function EditListing() {
                         <label className='username-label'>
                             State
                             <input className='username-input-box'
-                                placeholder='Enter city'
+                                placeholder='Enter State'
                                 type="text"
                                 value={state}
                                 onChange={updateState}
