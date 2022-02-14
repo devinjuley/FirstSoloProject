@@ -49,7 +49,7 @@ function ProfileButton({ user }) {
                         <img src={emailImage} alt='email' id='email-image-dropdown' />
                         <span>{user.email}</span>
                     </li>
-                    <li>
+                    <li className='logout-button-parent'>
                         <button onClick={logout} className='logout-button-inside-dropdown'>Log Out</button>
                     </li>
                 </ul>
