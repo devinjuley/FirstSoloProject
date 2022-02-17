@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { getSingleSpot, deleteListing } from '../../store/spots';
 import LeaveReview from '../LeaveReviewModal';
 import './SingleSpot.css';
+import ReviewComponent from './ReviewComponent';
 
 function SingleSpot() {
     const { id } = useParams();
@@ -119,15 +120,9 @@ function SingleSpot() {
                 {/* <div className='single-spot-reviews'>Reviews</div> */}
                 {leaveAReview}
                 <div className='single-spot-reviews-container'>
-                    {spot?.Reviews.map(review => {
-                        return <div key={review?.id} className='single-spot-reviews'>
-                            <div className='username-and-photo'>
-                                <img src={review?.User?.photoUrl} className='review-user-headshot' />
-                                <span className='review-username'>{review?.User?.username}</span>
-                            </div>
-                            <div className='review-div'> {review?.review} </div>
-                        </div>
-                    })}
+                    {spot?.Reviews.map(review => (
+                        <ReviewComponent review={review} />
+                    ))}
                 </div>
 
             </div>
