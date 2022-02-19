@@ -18,6 +18,9 @@ const ReviewComponent = ({ review }) => {
         // dispatch(editPostThunk(editedPost))
         // setShowEditBox(false)
     }
+    const handleDelete = () => {
+        // dispatch(deletePostThunk(post.id))
+    };
 
     return (
         <div key={review?.id} className='single-spot-reviews'>
@@ -28,20 +31,25 @@ const ReviewComponent = ({ review }) => {
             {!showEditBox && (<div className='review-div'> {review?.review} </div>)}
             {showEditBox && (
                 <form onSubmit={handleEditSubmission} className=''>
-                    <input
+                    <textarea
                         type='text'
                         value={textContent}
                         onChange={(e) => setTextContent(e.target.value)}
-                        className=''
+                        className='input-box-for-edit'
                     />
                 </form>
             )}
-            {!showEditBox && (<div className='edit-button-dropdown' onClick={() => setShowEditBox(true)}>
-                <img src='https://media.discordapp.net/attachments/921246913167245363/922208971253751838/unknown.png' className='edit-pencil-icon' alt='' />
-                Edit</div>)}
-            {showEditBox && (<div className='edit-button-dropdown' onClick={() => setShowEditBox(false)}>
-                <img src='https://media.discordapp.net/attachments/921246913167245363/922283242713935882/unknown.png' className='edit-pencil-icon' alt='' />
-                Cancel</div>)}
+            <div className='edit-cancel-delete-button-parent'>
+                {!showEditBox && (<div className='div-around-edit' onClick={() => setShowEditBox(true)}>
+                    <img src='https://media.discordapp.net/attachments/921246913167245363/922208971253751838/unknown.png' className='edit-pencil-icon' alt='' />
+                    Edit</div>)}
+                {showEditBox && (<div className='dit-around-cancel' onClick={() => setShowEditBox(false)}>
+                    <img src='https://media.discordapp.net/attachments/921246913167245363/922283242713935882/unknown.png' className='edit-pencil-icon' alt='' />
+                    Cancel</div>)}
+                <div className='div-around-delete' onClick={handleDelete}>
+                    <img src='https://media.discordapp.net/attachments/921246913167245363/922209557898465280/unknown.png' className='delete-trashcan-icon' alt='' />
+                    Delete</div>
+            </div>
         </div>
     )
 
