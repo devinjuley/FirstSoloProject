@@ -11,6 +11,8 @@ const editListing = require('./editlisting')
 const deleteListing = require('./deletelisting')
 const createReview = require('./createreview')
 const allSpots = require('./allSpots')
+const editReview = require('./editreview')
+const deleteReview = require('./deletereview')
 
 router.use('/session', sessionRouter);
 
@@ -36,6 +38,9 @@ router.use('/createreview', createReview)
 
 router.use('/allspots', allSpots)
 
+router.use('/editreview', editReview)
+
+router.use('/deletereview', deleteReview)
 
 // router.post('/test', (req, res) => {
 //     res.json({ requestBody: req.body });
