@@ -9,6 +9,12 @@ const listingValidations = require('../../utils/listings')
 
 const router = express.Router();
 
+router.delete("/:id", asyncHandler(async function (req, res) {
+    const id = req.params.id
+    const review = await Review.findByPk(id)
+    await review.destroy()
+    return res.json(review)
+}))
 
 
 
