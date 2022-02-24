@@ -9,7 +9,9 @@ const listingValidations = require('../../utils/listings')
 
 const router = express.Router();
 
+router.put('/id(\\d+)', asyncHandler(async (req, res) => {
 
+}))
 
 
 
