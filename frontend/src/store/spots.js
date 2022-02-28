@@ -8,6 +8,7 @@ const LOAD_SINGLE_SPOT = 'spots/LOAD_SINGLE_SPOT';
 const ADD_NEW_LISTING = 'spots/ADD_NEW_LISTING';
 const DELETE_LISTING = 'spots/DELETE_LISTING';
 const ADD_NEW_REVIEW = 'spots/ADD_NEW_REVIEW'
+const DELETE_REVIEW = 'spots/DELETE_REVIEW'
 const LOAD_ALL = 'spots/LOAD_ALL'
 const SEARCH = '/spots/SEARCH'
 
@@ -53,6 +54,11 @@ const addNewListing = list => ({
 
 const addNewReview = list => ({
     type: ADD_NEW_REVIEW,
+    list
+})
+
+const deleteOneReview = list => ({
+    type: DELETE_REVIEW,
     list
 })
 
@@ -183,6 +189,17 @@ export const deleteListing = (spotId) => async dispatch => {
         const listing = await response.json()
         dispatch(deleteOneListing(listing))
         return listing;
+    }
+}
+
+export const deleteReview = (reviewId) => async dispatch => {
+    const response = await csrfFetch(`/api/deletereview/${reviewId}`, {
+        method: 'DELETE'
+    })
+    if (response.ok) {
+        const review = await response.json()
+        dispatch(deleteOneReview(review))
+        return review
     }
 }
 
