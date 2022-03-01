@@ -262,6 +262,10 @@ const spotReducer = (state = initialState, action) => {
             delete newState[action.list];
             return newState;
         }
+        case DELETE_REVIEW: {
+            const newState = { ...state };
+            delete newState[action.list]
+        }
         case ADD_NEW_REVIEW: {
             const newState = {
                 ...state,
