@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { deleteReview } from '../../store/spots';
 
 
 const ReviewComponent = ({ review }) => {
@@ -20,7 +21,7 @@ const ReviewComponent = ({ review }) => {
         // setShowEditBox(false)
     }
     const handleDelete = () => {
-        // dispatch(deletePostThunk(post.id))
+        dispatch(deleteReview(review.id))
     };
 
     return (
@@ -41,13 +42,13 @@ const ReviewComponent = ({ review }) => {
                 </form>
             )}
             <div className='edit-cancel-delete-button-parent'>
-                {sessionUser.id == review?.userId && (!showEditBox && (<div className='div-around-edit' onClick={() => setShowEditBox(true)}>
+                {sessionUser?.id == review?.userId && (!showEditBox && (<div className='div-around-edit' onClick={() => setShowEditBox(true)}>
                     <img src='https://media.discordapp.net/attachments/921246913167245363/922208971253751838/unknown.png' className='edit-pencil-icon' alt='' />
                     Edit</div>))}
                 {showEditBox && (<div className='dit-around-cancel' onClick={() => setShowEditBox(false)}>
                     <img src='https://media.discordapp.net/attachments/921246913167245363/922283242713935882/unknown.png' className='edit-pencil-icon' alt='' />
                     Cancel</div>)}
-                {sessionUser.id == review?.userId && (<div className='div-around-delete' onClick={handleDelete}>
+                {sessionUser?.id == review?.userId && (<div className='div-around-delete' onClick={handleDelete}>
                     <img src='https://media.discordapp.net/attachments/921246913167245363/922209557898465280/unknown.png' className='delete-trashcan-icon' alt='' />
                     Delete</div>)}
             </div>

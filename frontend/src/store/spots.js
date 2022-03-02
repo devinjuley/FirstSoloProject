@@ -264,13 +264,21 @@ const spotReducer = (state = initialState, action) => {
         }
         case DELETE_REVIEW: {
             const newState = { ...state };
-            delete newState[action.list]
+            delete newState[action.list.spotId]['Reviews'][action.list.id]
+            const copiedState = { ...newState[action.list.spotId] }
+
+            console.log(action.list, newState)
+            return copiedState;
         }
         case ADD_NEW_REVIEW: {
             const newState = {
                 ...state,
                 [action.list.id]: action.list
             }
+            // action.list.forEach(review => {
+            //     newState[action.list.spotId]['Reviews'][action.list.id] = review;
+            // })
+            // console.log(newState[action.list.spotId]['Reviews'][action.list.id])
             return newState;
         }
         case LOAD_ALL: {
